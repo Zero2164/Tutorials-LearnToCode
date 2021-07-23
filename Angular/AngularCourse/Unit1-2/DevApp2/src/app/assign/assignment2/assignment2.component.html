@@ -1,0 +1,51 @@
+<div class="container">
+    <header class="text-center">
+        <h3>
+            <strong>
+                Second assignment:
+            </strong>
+        </h3>
+        <p>Create a 'Username' input box. This box must do the following:</p>
+    </header>
+    <div class="row justify-content-center align-items-center">
+        <ol>
+            <li>The input must update a property called 'Username'.</li>
+            <li>There should be a field updated by string interpolation live while entering the username in the input.
+            </li>
+            <li>Add a button which may only be clicked if the input is <u>NOT</u> an empty string.</li>
+            <li>Add a button that when clicked the username should be cleared from all fields.</li>
+        </ol>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="alert alert-success m-1 text-left" role="alert" [style]="welcomeMsg">
+                <h4 class="alert-heading">Welcome {{ username }}!</h4>
+                <p>Your successfully created a username.</p>
+                <hr>
+                <p class="mb-0">Whenever you need to, you can clear the username below.</p>
+            </div>
+            <div class="alert alert-warning m-1 fade show text-center col-xs-4" role="alert"
+                [style]="deltMsg">
+                Username has now been cleared.
+            </div>
+        </div>
+        <p class="text-center" [style]="usernameSubmitted">
+            {{ usernameField }} {{ username }}
+        </p>
+        <div class="row justify-content-center align-items-center">
+            <input type="text" class="form-control text-center col-4 m-2" [style]="usernameSubmitted"
+                [disabled]="submit" placeholder="Enter Username" [(ngModel)]="username" (input)="userSwtch()">
+            <div>
+                <button class="btn btn-success m-1" [disabled]="!usernameIsTrue" (click)="userSubmit()"
+                    [style]="usernameSubmitted">
+                    Add Username
+                </button>
+                <button class="btn btn-danger m-1" [disabled]="!usernameClear" (click)="userDelete()"
+                    [style]="welcomeMsg">
+                    Clear Username
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

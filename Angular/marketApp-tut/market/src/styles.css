@@ -1,0 +1,18 @@
+.error.mat-snack-bar-container {
+    background-color: rgb(184, 58, 58);
+    color: white;
+}
+
+.success.mat-snack-bar-container {
+    background-color: rgb(73, 184, 58);
+    color: white;
+}
+
+body {
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    margin: 0 auto;
+}

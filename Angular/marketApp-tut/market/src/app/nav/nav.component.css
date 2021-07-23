@@ -1,0 +1,60 @@
+.sidenav-container {
+  height: 100%;
+  width: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.navBarColor{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+
+.material-icons.pineapple {
+  font-size: 3rem;
+  margin: 0 auto;
+}
+
+.shoppinBag, .cancelBtn {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding-right: 0.3rem;
+
+}
+
+.cancelContainer {
+  text-align: center;
+  background-color: rgba(252, 236, 19, 0.37);
+}
+
+.navBarColor {
+  background-color: rgba(252, 236, 19, 0.37);
+}
+
+.cancelBtn {
+  padding: 0.5rem;
+  padding-bottom: 0;
+  margin: 0 auto;
+}
+
+.fontChng {
+  font-family: 'Satisfy', cursive;
+  padding: 1rem;
+  font-size: 2.5rem;
+}
+
+.centr {
+  margin: 0 auto;
+  padding-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+}

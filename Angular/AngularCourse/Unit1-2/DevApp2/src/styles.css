@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: rgb(45, 47, 48);
+    color: white;
+    padding-top: 10rem;
+
+}
+
+h3 {
+    color: rgb(74, 169, 247);
+}
+
+hr {
+    background-color: white;
+}
+
+.KyLoadMe {
+    text-align: center;
+}

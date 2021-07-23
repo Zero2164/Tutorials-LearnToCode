@@ -1,0 +1,3 @@
+# Runs on the Node.JS Framework.
+
+# Utilises the type-script language - that is compiled by Javascript but includes more features, and to run those features we require the more advanced setup (Node.JS/npm install). 

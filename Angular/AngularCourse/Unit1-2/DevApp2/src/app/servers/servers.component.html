@@ -1,0 +1,19 @@
+<app-server></app-server>
+<div class="container m-2 text-center">
+    <div class="row justify-content-center align-items-center m-2">
+        <!-- <input 
+    type="text" 
+    class="form-control text-center"
+    placeholder="Create New Server Name"
+    (input)="onUpdateServerName($event)"> -->
+        <input type="text" class="form-control text-center col-5" placeholder="Create New Server Name"
+            [(ngModel)]="serverName">
+        <!-- <label> Server Name: {{ serverName }} </label> -->
+        <br>
+    </div>
+    <p *ngIf="onServerCreate"> {{ serverCreationStatus }} </p>
+    <!-- <p >This is the server name: {{ serverCreationStatus }}</p> -->
+    <button class="btn btn-primary test" [disabled]="!allowNewServer" (click)="onCreateServer()">
+        Add Server
+    </button>
+</div>
