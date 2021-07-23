@@ -1,0 +1,61 @@
+<%- include("../partials/header") %>
+
+<body class="auth">
+    <%- include("../partials/navflash") %>
+    <div class="btnbg mt-5 p-2 pt-5">
+        <div class="container pageContent text-center mb-0 mt-5 pb-5 col-md-6 col-xl-4">
+            <h3 class="text-white">Edit <%= campground.name %></h1>
+                <div class="formArea2 col-12">
+                    <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST"
+                        class="text-white text-left">
+                        <div class="form-group">
+                            <label for="cname">Name</label>
+                            <input id="cname" class="form-control" type="text" name="campground[name]"
+                                value="<%= campground.name %>" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cprice">Price</label>
+                            <input id="cprice" class="form-control" type="number" name="campground[price]"
+                                value="<%= campground.price %>" autocomplete="off" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cimg">Campground Image URL</label>
+                            <input id="cimg" class="form-control" type="text" name="campground[img]"
+                                value="<%= campground.img %>" autocomplete="off" required>
+                            <img class="cmpImg2 border-white" src="<%= campground.img %>">
+                            <div id="cmpImg2Btun" class="btn btn-md btn-block btn-success m-auto col-md-12">
+                                <span id="cmpImg2Text">Show Image</span>
+                                <i id="animCmpHovIcn" class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input class="form-control" type="text" name="location" id="location"
+                                value="<%= campground.location %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="cdescription">Description</label>
+                            <div class="input-group">
+                                <textarea id="cdescription" class="form-control desc" aria-label="With textarea"
+                                    type="text" name="campground[description]" autocomplete="off" size="50"
+                                    required><%= campground.description %></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">Save</button>
+                        </div>
+                    </form>
+                    <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger btn-block">Delete Campground</button>
+                    </form>
+                    <br>
+                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-md btn-secondary btn-block"><i
+                            id="animHovIcn" class="fas fa-arrow-left pr-2"></i><span id="animHovBtun">Cancel</span></a>
+                </div>
+        </div>
+        <%- include("../partials/trademark2") %>
+    </div>
+    <div class="background2">
+        <img src="<%= campground.img %>">
+    </div>
+    <%- include("../partials/footer") %>

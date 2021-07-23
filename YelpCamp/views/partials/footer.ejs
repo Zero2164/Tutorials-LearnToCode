@@ -1,0 +1,252 @@
+<button id="myBtn"><i class="fas fa-chevron-up"></i></button>
+</div>
+<!-- My JS In-line Script -->
+<script>
+
+    jQuery(document).ready(function () {
+        $('#pageLoad').fadeIn(300, function () {
+            $('#navButnz').css('visibility', 'visible');
+        });
+        
+    });
+
+    $("#overlay").overlayScrollbars({
+        className: "os-theme-round-light",
+        resize: "none",
+        clipAlways: true,
+        normalizeRTL: true,
+        paddingAbsolute: false,
+        autoUpdate: null,
+        autoUpdateInterval: 33,
+        updateOnLoad: ["img"],
+        nativeScrollbarsOverlaid: {
+            showNativeScrollbars: false,
+            initialize: true
+        },
+        overflowBehavior: {
+            x: "scroll",
+            y: "hidden"
+        },
+        scrollbars: {
+            visibility: "auto",
+            autoHide: "never",
+            autoHideDelay: 800,
+            dragScrolling: true,
+            clickScrolling: true,
+            touchSupport: true,
+            snapHandle: true
+        },
+    });
+
+    
+    $(".cmpList").overlayScrollbars({
+        className: "os-theme-light",
+        resize: "none",
+        clipAlways: true,
+        normalizeRTL: true,
+        paddingAbsolute: false,
+        autoUpdate: null,
+        autoUpdateInterval: 33,
+        updateOnLoad: ["img"],
+        nativeScrollbarsOverlaid: {
+            showNativeScrollbars: false,
+            initialize: true
+        },
+        overflowBehavior: {
+            x: "hidden",
+            y: "scroll"
+        },
+        scrollbars: {
+            visibility: "auto",
+            autoHide: "never",
+            autoHideDelay: 800,
+            dragScrolling: true,
+            clickScrolling: true,
+            touchSupport: true,
+            snapHandle: true
+        },
+    });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    function navbtn() {
+        $('#buttOp').on('click', function () {
+            $('#opnFoldr').toggleClass('fa-map');
+            $('#myCollapsible').slideToggle(100);
+        });
+    };
+
+    function commentbtn() {
+        $('#revBtun').on('click', function () {
+            $('#formgruBtun').slideDown(200);
+            $('#revBtun').fadeOut(100);
+            $('#textBtun').focus();
+            $('#myBtn').css('visibility', 'hidden');
+        });
+        $('#awayBtun').on('click', function () {
+            $('#formgruBtun').slideUp(200);
+            $('#revBtun').fadeIn(100);
+            $('#myBtn').css('visibility', 'visible');
+        });
+        $('#textBtun').on('click', function () {
+            $('#myBtn').css('visibility', 'hidden');
+        });
+        $('#textBtun').on('focusout', function () {
+            $('#myBtn').css('visibility', 'visible');
+        });
+    };
+    var isTrue = true;
+    function openImg() {
+
+
+        $('#cmpImg2Btun').on('click', function () {
+            if (isTrue) {
+                $('.cmpImg2').slideDown(300, function () {
+                    $('#cmpImg2Text').text('Hide Image');
+                    $('#animCmpHovIcn').removeClass('fa-chevron-down');
+                    $('#animCmpHovIcn').addClass('fa-chevron-up');
+                    isTrue = false;
+                });
+            } else if (!isTrue) {
+                $('.cmpImg2').slideUp(300, function () {
+                    $('#cmpImg2Text').text('Show Image');
+                    $('#animCmpHovIcn').addClass('fa-chevron-down');
+                    $('#animCmpHovIcn').removeClass('fa-chevron-up');
+                    isTrue = true;
+                });
+            }
+
+
+
+        });
+
+    };
+
+    function scrollingToTheTop() {
+        window.onscroll = function () { scrollTopFunc() };
+
+        function scrollTopFunc() {
+            if ($('body').scrollTop() >= 20 || $('html').scrollTop() >= 20) {
+                $('#myBtn').css('display', 'block');
+            } else if ($('body').scrollTop() < 20 || $('html').scrollTop() < 20) {
+                $('#myBtn').css('display', 'none');
+            }
+        };
+        $('#myBtn').on('click', function () {
+            $('body').scrollTop(0);
+            $('html').scrollTop(0);
+        });
+    }
+    scrollingToTheTop();
+    openImg();
+    scrollingToTheTop();
+    navbtn();
+    commentbtn();
+</script>
+<script>
+    function focusInput() {
+        var
+            navSrchInput = document.getElementById("navSrchInput"),
+            navSrchBtun = document.getElementById("navSrchBtn"),
+            navSrchBox = document.getElementsByClassName("srch-box")[0];
+
+        function ATNavSearchButton() {
+            navSrchBtun.addEventListener("mouseover", function () {
+                //Event to create expanded search-box elusion
+                //UnHide the search-box on mouse-over of the HTML Element, then return false
+                navSrchInput.hidden = false;
+                return false;
+            });
+
+            navSrchBox.addEventListener("mouseleave", function () {
+                //Event to create collapsed search-box elusion
+                //Hide the search-box on mouse-leave of the HTML Element, then return false
+                navSrchInput.hidden = true;
+                return false;
+            });
+        };
+
+
+        $('.srch-butn').on('click', function () {
+            $('.srch-txt').fadeIn(300);
+            $('.srch-txt').focus();
+            $('.srch-box').addClass('activeSearch');
+            $('.srch-butn').addClass('activeSearchbutn');
+        });
+        $('.srch-butn').on('mouseover', function () {
+            $('.srch-txt').fadeIn(300);
+            $('.srch-txt').focus();
+            $('.srch-box').addClass('activeSearch');
+            $('.srch-butn').addClass('activeSearchbutn');
+        });
+        $('.srch-txt').on('focusout', function () {
+            $('.srch-txt').fadeOut(300);
+            $('.srch-box').removeClass('activeSearch');
+            $('.srch-butn').removeClass('activeSearchbutn');
+        });
+    };
+
+    function focusInput2() {
+        var
+            navSrchInput2 = document.getElementById("navSrchInput2"),
+            navSrchBtun2 = document.getElementById("navSrchBtn2"),
+            navSrchBox2 = document.getElementsByClassName("srch-box2")[0];
+
+        function ATNavSearchButton() {
+            navSrchBtun2.addEventListener("mouseover", function () {
+                //Event to create expanded search-box elusion
+                //UnHide the search-box on mouse-over of the HTML Element, then return false
+                navSrchInput2.hidden = false;
+                return false;
+            });
+
+            navSrchBox2.addEventListener("mouseleave", function () {
+                //Event to create collapsed search-box elusion
+                //Hide the search-box on mouse-leave of the HTML Element, then return false
+                navSrchInput2.hidden = true;
+                return false;
+            });
+        };
+
+
+        $('.srch-butn2').on('click', function () {
+            $('.srch-txt2').fadeIn(300);
+            $('.srch-txt2').focus();
+            $('.srch-box2').addClass('activeSearch');
+            $('.srch-butn2').addClass('activeSearchbutn');
+        });
+        $('.srch-butn2').on('mouseover', function () {
+            $('.srch-txt2').fadeIn(300);
+            $('.srch-txt2').focus();
+            $('.srch-box2').addClass('activeSearch');
+            $('.srch-butn2').addClass('activeSearchbutn');
+        });
+        $('.srch-txt2').on('focusout', function () {
+            $('.srch-txt2').fadeOut(300);
+            $('.srch-box2').removeClass('activeSearch');
+            $('.srch-butn2').removeClass('activeSearchbutn');
+        });
+    };
+    focusInput();
+    focusInput2();
+
+    // function editComment() {
+    //     $('.editBtun').on('click', function () {
+    //         $('editBtunGrp').fadeOut(300);
+    //         $('.commentText').fadeOut(300);
+    //         $('.commentEditText').fadeIn(300);
+    //         $(this).focus();
+    //         $('.closeEditBtun').fadeIn(300);
+    //         $('.commentArea').addClass('bg-dark');
+    //     });
+    //     $('.closeEditBtun').on('click', function () {
+    //         location.reload();
+    //     });
+    // }
+    // editComment();
+</script>
+</body>
+
+</html>

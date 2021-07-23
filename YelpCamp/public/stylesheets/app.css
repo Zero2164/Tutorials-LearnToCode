@@ -1,0 +1,383 @@
+
+
+/* Main ID's */
+#pageLoad {
+	display: none;
+}
+
+#navButnz {
+	visibility: hidden;
+}
+
+#mainNav {
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 0.5rem;
+}
+
+
+
+
+/* HTML Tags */
+div.btnbg {
+	display: block;
+	max-width:100%;
+	height:auto;
+	position: relative;
+	z-index: 2;
+}
+
+div.btnbg2 {
+	width: 100%;
+	position: absolute;
+	z-index: 990;
+}
+
+div.btnbg3 {
+	width: 100%;
+	position: relative;
+	z-index: 930;
+	padding-top: 30vh;
+}
+
+div.btnbg4 {
+	width: 100%;
+	position: relative;
+	z-index: 930;
+	padding-top: 30vh;
+}
+
+div.btnbg5 {
+	margin-top: 6rem;
+}
+
+div a.dropdown-item:hover, ul.nav-item li.nav-link:hover {
+	color: rgb(67, 149, 106);
+	transition: 0.2s;
+	background-color: transparent;
+}
+
+div a.dropdown-item {
+	color: white;
+}
+
+header.bodyPage {
+	background-color: transparent;
+	max-height: 60vh;
+	min-height: 60vh;
+	margin: 1rem;
+}
+
+header.bodyPage2 {
+	background-color: transparent;
+	margin: 1rem;
+}
+
+header.infoPage {
+	padding: 0;
+	width: 100%;
+}
+
+div.commentArea:hover {
+	background-color: rgba(62, 89, 114, 0.274);
+	cursor: text;
+}
+
+div.commentArea:hover>span>span.date {
+	visibility: hidden;
+}
+
+div.commentEditText {
+	display: none;
+	width: 100%;
+}
+
+div.errMsg {
+	background-color: rgba(255, 0, 0, 0.253);
+	height: 40px;
+}
+div.footerText {
+	padding-top: 5vh;
+	width: 100%;
+	background-color: transparent;
+}
+
+
+
+
+/* Classes */
+.background, .background2 {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.background li, .background2 img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+
+.background2 img {
+	opacity: 20%;
+	transition: 0.6s;
+}
+
+.background li {
+	background-image: url("../../bgImage.jpg")
+}
+
+.cmpImg {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.cmpImg2 {
+	display: none;
+	width: 100%;
+	height: 30rem;
+	border-radius: 5px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.cmpcontainer {
+	height: 40vh;
+}
+
+.cmpList {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.caption, #campname {
+	color: white;
+	text-decoration: none;
+}
+
+.cmpGrndInfo {
+	text-align: left;
+}
+
+.desc {
+	min-height: 100px;
+	max-height: 400px;
+	padding: 5px;
+	overflow-x: auto;
+}
+
+.formArea {
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+}
+
+.formArea2 {
+	margin: 0 auto;
+	width: 60%;
+}
+
+.linkTag {
+	text-decoration: none;
+}
+
+.linkTag, .linkTag:hover, h1, .cmpGrndInfo, h4 {
+	color: white;
+}
+
+.logTrue {
+	display: none;
+}
+
+.pageContent {
+	padding: 1rem;
+	padding-top: 2rem;
+	padding-left: 0rem;
+	padding-right: 0rem;
+	padding-bottom: 0rem;
+	height: auto;
+	border-radius: 5px;
+	background-color: #262b2e;
+}
+
+.pageHeader {
+	padding-top: 10vh;
+	height: auto;
+	border-bottom: 2px solid #0d954d;
+	font-family: sans-serif;
+	text-align: left;
+	font-size: 2.8rem;
+	text-shadow: 1px 4px 1px rgba(65, 65, 65, 0.911);
+}
+
+.pageHeaderSubTxt, .pageHeader {
+	color: #f8f8f8;
+}
+
+.pageHeaderSubTxt {
+	font-size: 1.3rem;
+	text-shadow: 1px 2px 1px rgba(65, 65, 65, 0.911);
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.scrollBox {
+	width: 100%;
+	overflow: hidden;
+}
+
+.tradmrk {
+	color: #ffffff28;
+}
+
+.tradmrk {
+	text-align: center;
+}
+
+.thumbnail {
+	width: 100%;
+	height: 20rem;
+	font-weight: bold;
+	border-radius: 5px;
+	background-color: transparent;
+}
+
+.title:hover, .thumbnail:hover {
+	cursor: pointer;
+}
+
+.thumbnail:hover>a.linkTag, #campname:hover {
+	text-decoration: none;
+}
+
+.thumbnail:hover>a.linkTag>div.caption>h4, #campname:hover {
+	color: rgb(52, 187, 146);
+	transition: 0.4s;
+}
+
+/* ID's */
+#bgAreabody {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
+	transition: 0.4s;
+}
+
+#bgArea{
+    background-color: #262b2e;
+    width: 100%;
+	height: 80vh;
+    transition: 0.4s;
+}
+
+#btun4Sub2 {
+	font-size: 2rem;
+}
+
+#colorize {
+	background-color: rgba(255, 255, 255, 0.733);
+	color: white;
+}
+
+#headBG {
+    background-color: #262b2e;
+}
+
+#headBG2 {
+	padding-top: 5vh;
+	background-color: transparent;
+}
+
+#mainBrand {
+	height: 100%;
+	border-right: 2px solid white;
+}
+
+#map {
+	width: 250px;
+	height: 250px;
+	overflow: auto;
+}
+
+#mapimg {
+	width: 150%;
+	height: 150%;
+}
+
+#overlay {
+	height: 120%;
+	overflow-x: hidden;
+	width: 100%;
+}
+
+#overlay2 {
+	overflow: auto;
+}
+
+#reviewForm>div>div {
+	width: 100%;
+}
+
+#reviewForm>div {
+	height: 20rem;
+	overflow-x: auto;
+	border-radius: 5px;
+}
+
+#price {
+	font-family: 'Play';
+}
+
+
+/* Define  Index-Reference Document  Category-Box Container Margins to respond to screen size/resolution changes */
+@media screen and (max-width: 1900px) {
+	.pageHeader {
+		padding-top: 8vh;
+		font-size: 2.8rem;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.pageHeader {
+		padding-top: 6vh;
+		font-size: 2.2rem;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.pageHeader {
+		padding-top: 3vh;
+		font-size: 2rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.pageHeader {
+		padding-top: 3vh;
+		font-size: 2rem;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.pageHeader {
+		padding-top: 3vh;
+		font-size: 1rem;
+	}
+}

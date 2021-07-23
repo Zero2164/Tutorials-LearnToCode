@@ -1,0 +1,119 @@
+<% if(!currentUser) { %>
+<nav id="mainNav" class="navbar navbar-dark navbar-expand-md bg-dark fixed-top">
+  <div id="navButnz" class="container-fluid">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand"><span class="pr-2 pl-2 pl-md-0">YelpCamp</span><span id="mainBrand"
+          class="pl-2"></span></a>
+    </div>
+    <% } else { %>
+    <nav id="mainNav" class="navbar navbar-dark navbar-expand-md bg-dark fixed-top pt-1 pb-1 p-md-auto">
+      <div id="navButnz" class="container-fluid">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand"><span class="pr-2 pl-2 pl-md-0">YelpCamp</span><span id="mainBrand"
+              class="pl-2"></span></a>
+        </div>
+        <%  }%>
+        <button id="buttOp" class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i id="opnFoldr" class="fas fa-bars"></i>
+        </button>
+        <div id="myCollapsible" class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul id="navhomeBtunz" class="navbar-nav">
+            <li class="nav-item m-auto">
+              <a id="btun3" class="nav-link m-auto" href="/campgrounds">Home</a>
+            </li>
+            <li class="nav-item m-auto">
+              <% if(!currentUser) { %>
+              <a class="nav-link btn-sm btn-success text-white p-2 m-auto ml-md-2" href="/campgrounds/new"
+                data-toggle="tooltip" data-placement="bottom" title="Login/Signup to Add New Campground"><i
+                  class="fas fa-campground"></i><i class="fas fa-plus"></i></a>
+              <% } else { %>
+              <a class="nav-link btn-sm btn-success text-white p-2 m-auto ml-md-2" href="/campgrounds/new"
+                data-toggle="tooltip" data-placement="bottom" title="Add New Campground"><i
+                  class="fas fa-campground"></i><i class="fas fa-plus"></i></a>
+              <%  }%>
+            </li>
+          </ul>
+          <div id="navSrch" class="nav-link m-auto ml-md-0 pb-0 col-8 col-sm-5 col-md-auto">
+            <form class="srch-box mt-2 mt-md-0" action="/campgrounds/campground/Srch" method="GET" autocomplete="off">
+              <span id="navSrchBtn" class="srch-butn m-auto ml-md-0 p-3">
+                <i class="fas fa-search"></i>
+              </span>
+              <input id="navSrchInput" class="srch-txt pl-0" type="text" name="search" value=""
+                placeholder="Campground Search...">
+            </form>
+          </div>
+          <div class="dropdown-divider"></div>
+          <ul class="navbar-nav ml-auto">
+            <% if(!currentUser) { %>
+            <% } else { %>
+            <li class="nav-item dropleft">
+              <div>
+                <div id="btun4" class="nav-link btn btn-sm dropdown text-light m-auto" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false" id="navbarDropdown2">
+                  <% if(!currentUser.avatar) { %>
+                  <i id="btun4Sub" class="far fa-user"></i>
+                  <% } else { %>
+                  <img class="userProfileImgNav" src="<%= currentUser.avatar %>">
+                  <%  } %>
+
+                </div>
+                <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown2">
+                  <a class="dropdown-item" href="#"><i class="fas fa-thumbtack pr-2"></i>Favourite Campgrounds</a>
+                  <a class="dropdown-item" href="/users/<%= currentUser._id %>"><i
+                    class="fas fa-cog pr-2"></i>Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/logout"><i class="fas fa-walking pr-2"></i>Log Out</a>
+                </div>
+              </div>
+            </li>
+            <%  }%>
+
+            <% if(!currentUser) { %>
+            <li class="nav-item ">
+              <a class="nav-link btun btn btn-sm text-light" href="/login"><i class="far fa-user pr-2"></i>Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btun btn btn-sm text-light border-2 border-primary" href="/register"><i
+                  class="fas fa-user-edit pr-2"></i>Sign
+                Up</a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="pageLoad">
+      <div class="btnbg2 mt-3 pt-5 mb-5 pb-5">
+        <% if(success && success.length > 0) {%>
+        <div class="container col-11 col-md-5 col-lg-4 col-xl-4 p-1 mb-0">
+          <div class="alert alert-success text-center alert-dismissible fade show p-1 word-break" role="alert">
+            <%= success %>
+            <button type="button" class="close d-inline p-0 m-0 pr-2" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <%	} %>
+        <% if(error && error.length > 0) {%>
+        <div class="container col-11 col-md-5 col-lg-4 col-xl-4 p-1 mb-0">
+          <div class="alert alert-danger text-center alert-dismissible fade show p-1 word-break" role="alert">
+            <%= error %>
+            <button type="button" class="close d-inline p-0 m-0 pr-2" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <% } %>
+        <% if(warning && warning.length > 0) {%>
+        <div class="container col-11 col-md-5 col-lg-4 col-xl-4 p-1 mb-0">
+          <div class="alert alert-warning text-center alert-dismissible fade show p-1 word-break" role="alert">
+            <%= warning %>
+            <button type="button" class="close d-inline p-0 m-0 pr-2" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <% } %>
+      </div>

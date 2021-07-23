@@ -1,0 +1,90 @@
+<%- include("../partials/header") %>
+
+<body class="dark">
+	<%- include("../partials/navflash") %>
+	<div id="bgHeader" class="header">
+		<img id="bgAreabody" src="../../bodyImg1.jpg">
+		<div class="container mt-5 col-12 pb-0 mb-0">
+			<header class="jumbotron bodyPage mb-0">
+				<div class="container text-center">
+					<h1 class="pageHeader text-center text-break">
+						<% if(!currentUser) { %>
+						Welcome to YelpCamp
+						<% } else { %>
+						<% if(!currentUser.firstName) { %>
+						Welcome to YelpCamp,<br><%= currentUser.username %>
+						<% } else { %>
+						Welcome to YelpCamp,<br><%= currentUser.firstName %>
+						<% } %>
+						<%  }%>
+					</h1>
+					<p class="pageHeaderSubTxt">View our hand-picked campgrounds from Australia!</p>
+				</div>
+			</header>
+		</div>
+	</div>
+	<section class="btnbg">
+		<div class="container pageContent col-12">
+			<div class="container col-12">
+				<div id="overlay" class="text-center scrollBox col-12">
+					<div id="elem2" class="d-flex flex-row pb-4">
+						<% cmpGrounds.forEach(function(campground){ %>
+						<div class="cmpBckgrnd pb-5 mb-3 col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
+							<div class="thumbnail">
+								<a class="linkTag" href="/campgrounds/<%= campground._id %>">
+									<img class="cmpImg" src="<%= campground.img %>">
+									<div class="caption">
+										<h4>
+											<%= campground.name %>
+										</h4>
+									</div>
+								</a>
+							</div>
+						</div>
+						<% });%>
+					</div>
+				</div>
+			</div>
+			<div class="container mt-0 pt-0">
+				<% if(!currentUser) { %>
+				<div class="container col-12 mt-0 pt-0">
+					<div class="footerText text-white m-auto text-center pb-5 mb-3 mt-0 pt-4">
+						<p class="d-inline-flex pr-2">Login/Sign Up to Add a Campground</p>
+						<div class="btn-group d-inline-flex">
+							<a href="/login" class="btn btn-md btn-success"><span>Login</span></a>
+							<a href="/register" class="btn btn-md btn-outline-primary"><span>Sign Up</span></a>
+						</div>
+					</div>
+				</div>
+				<% } else { %>
+				<div class="container col-sm-6 mt-0 pt-0">
+					<div class="footerText text-white m-auto text-center pb-5 mb-3 mt-0 pt-4">
+						<a class="nav-link btn btn-md btn-success" href="/campgrounds/new">Add New Campground</a>
+					</div>
+				</div>
+				<%  }%>
+			</div>
+		</div>
+	</section>
+	<div class="btnbg">
+		<div class="container col-12 text-center p-5 bg-white">
+			<h4 class="col-11 col-sm-7 col-md-5 col-lg-4 col-xl-3 m-auto text-dark"><em>`You must go on adventures to
+					find out where you truly belong!`</em></h4>
+		</div>
+	</div>
+	<div class="btnbg">
+		<%- include("../partials/trademark") %>
+	</div>
+	<script type="text/javascript">
+
+		function headerTransition() {
+			var headerBg = document.getElementById('bgHeader');
+			window.addEventListener('scroll', function () {
+				headerBg.style.opacity = 1 - +window.pageYOffset / 350 + '';
+			});
+		};
+		headerTransition();
+
+	</script>
+
+	<%- include("../partials/footer") %>

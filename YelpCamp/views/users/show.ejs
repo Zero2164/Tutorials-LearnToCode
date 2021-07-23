@@ -1,0 +1,89 @@
+<%- include("../partials/header") %>
+
+<body class="dark">
+    <%- include("../partials/navflash") %>
+    <div class="btnbg mt-5 p-2 pt-5">
+        <div class="container btnbg5 pageContent text-center mb-0 mt-5 pb-5">
+            <div class="row">
+                <header id="headBG2" class="jumbotron infoPage pr-0 mr-0 pl-0 ml-0 col-12 text-white">
+                    <h1>
+                        <% if(!user.firstName) { %>
+                        <%= user.username %>'s Profile
+                        <% } else { %>
+                        <%= user.firstName %>'s Profile
+                        <% } %>
+                    </h1>
+                    <% if(!user.avatar) { %>
+                    <i id="btun4Sub2" class="far fa-user"></i>
+                    <% } else { %>
+                    <img class="userProfileImg" src="<%= user.avatar%>">
+                    <%  } %>
+                </header>
+                <div class="container text-light text-center">
+                    <% if(currentUser && currentUser._id.equals(user._id)) { %>
+                    <div class="container p-2 mb-4">
+                        <a class="btn-lg" href="/users/<%= user._id %>/edit"><i id="btun4" class="fas fa-edit"
+                                data-toggle="tooltip" data-placement="bottom" title="Edit Profile?"></i></a>
+                    </div>
+                    <%   } %>
+                    <div class="card bg-dark col-11 d-inline-flex m-1">
+                        <h5 class="card-title p-3 mb-0 pb-0 border-bottom border-success">Contact Info</h5>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-left">
+                                <li>
+                                    <% if(!user.email) { %>
+                                    Email: N/A
+                                    <% } else { %>
+                                    Email: <%= user.email %>
+                                    <% } %>
+
+                                </li>
+                                <li>
+                                    <% if(!user.phone) { %>
+                                    Ph: N/A
+                                    <% } else { %>
+                                    Ph: <%= user.phone %>
+                                    <% } %>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card bg-dark col-11 d-inline-flex cmpcontainer m-1">
+                        <h5 class="card-title p-3 mb-0 pb-0 border-bottom border-success">Campgrounds Added</h5>
+                        <div class="card-body cmpList">
+                            <ul class="list-unstyled text-left">
+                                <% campgrounds.forEach(function(campground) { %>
+                                <li><a class="btun3" href="/campgrounds/<%= campground.id %>"><%= campground.name %></a>
+                                </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <ul class="slideshow">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script type="text/javascript">
+
+        function headerTransition() {
+            var headerBg = document.getElementById('bgArea');
+            window.addEventListener('scroll', function () {
+                headerBg.style.opacity = 1 - +window.pageYOffset / 500 + '';
+            });
+        };
+        headerTransition();
+
+    </script>
+
+    <%- include("../partials/footer") %>
