@@ -1,4 +1,16 @@
+# import loading animation
+from glob import glob
+from platform import freedesktop_os_release
+from loading_animation import loading_animation
+# import required components
+import time
+
+
+
 def app():
+    # Clear Console Window before code
+    print('\033c')
+    
     # # Define Array(List) 
     # # accepts all data types
     # # friends=['Max', 2]
@@ -21,7 +33,16 @@ def app():
 
     # ******** Using functions with Lists example ********
     # Define more friends for example
+    
     friends=['Max', 'Alistair', 'Chris', 'Tyson', 'Bryce', 'Georgia']
+    # define restore friends function:
+    def restore_friends(opt):
+        nonlocal friends
+        if opt: 
+            friends=['Max', 'Alistair', 'Chris', 'Tyson', 'Bryce', 'Georgia']
+            return friends
+        friends.clear
+
     # Define Numbers List
     lucky_numbers=[4, 8, 15, 16, 32, 42]
 
@@ -49,12 +70,20 @@ def app():
 
     # using the count function to count how many times the specified string is stated in the list
     friends.clear()
-    friends.append(('Max',)*5)
-    print('\033cResult of how many times Max is specified in the list:',friends.count('Max'))
-
-
+    addfriends=['Max']
+    multiplier=5
+    friends.extend(addfriends*multiplier)
+    
     # Print Result
-    print('\nHere is my full list of work friends:',friends,'\n')
-
+    print('friends.extend(addfriends*multiplier) Output: ')
+    print('Here is my modified list of work friends:',friends)
+    print('Here is how many times Max is specified in this list:',friends.count('Max'))
+    time.sleep(2)
+    loading_animation('load', 'Restoring Friends List..', 'Restore Complete.')
+    time.sleep(1)
+    restore_friends('y')
+    print('Here is my full list of work friends:',friends)
+    # Exit Code
+    loading_animation('exit')
 # Run main app code
 app()

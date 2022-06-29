@@ -1,8 +1,7 @@
 #******* First Script ***********
-# print("Hello World")
-
+# # print("Hello World")
 #******* Printing, Console and Order of operations ***********
-print("\033c", end="")
+# print("\033c", end="")
 # print("    /|")
 # print("   / |")
 # print("  /  |")
@@ -213,40 +212,6 @@ print("\033c", end="")
 
 
 
-# Code Exit Script -----------
-import itertools
-import threading
-import time
-import sys
-time.sleep(1)
-
-inpt_end_script = input('Clear script output before closing? (y/n):')
-
-if inpt_end_script == 'y' :
-    print('')
-    # Close Script Animation
-
-
-    done = False
-    #here is the animation
-    def animate():
-        for c in itertools.cycle(['|', '/', '-', '\\']):
-            if done:
-                break
-            sys.stdout.write('\rClearing yo stinky history, holdup... ' + c)
-            sys.stdout.flush()
-            time.sleep(0.1)
-        print("\033c", end="")
-        print('Terminal history cleared, Goodbye!!')
-        time.sleep(1.6)
-        print("\033c", end="")
-    t = threading.Thread(target=animate)
-    t.start()
-
-    #sleep for 3 seconds
-    time.sleep(1)
-    done = True
-
-
-if inpt_end_script == 'n' :
-    print('\n**** Ok above this line is previous script output. Have a great day. ****\n')
+# # Code Exit Script -----------
+from loading_animation import loading_animation
+loading_animation('exit')
